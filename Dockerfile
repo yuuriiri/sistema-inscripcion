@@ -14,7 +14,7 @@ FROM eclipse-temurin:21-jdk
 COPY --from=buildstage /app/target/inscripcion-1.0.0.jar /app/app.jar
 
 # Copiar el Wallet de Oracle Cloud dentro de la imagen
-COPY wallet/ /app/wallet/
+COPY src/main/resources/wallet/ /app/wallet/
 
 EXPOSE 8080
 
