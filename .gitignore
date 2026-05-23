@@ -24,3 +24,6 @@ target/
 
 ### macOS ###
 .DS_Store
+
+# NO ignorar la carpeta wallet - necesaria para Docker
+!src/main/resources/wallet/

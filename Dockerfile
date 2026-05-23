@@ -10,9 +10,13 @@ RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:21-jdk
 
+# Copiar el JAR
 COPY --from=buildstage /app/target/inscripcion-1.0.0.jar /app/app.jar
+
+# Copiar el Wallet de Oracle Cloud dentro de la imagen
+COPY wallet/ /app/wallet/
 
 EXPOSE 8080
 
-# El perfil "docker" activa H2 en vez de Oracle
+# Activar perfil docker que apunta al wallet en /app/wallet
 CMD ["java", "-jar", "-Dspring.profiles.active=docker", "/app/app.jar"]
