@@ -9,6 +9,7 @@ import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.*;
 
 import java.io.InputStream;
+import java.util.List;
 
 @Service
 public class S3Service {
@@ -108,5 +109,17 @@ public class S3Service {
 
     public String getBucket() {
         return bucket;
+    }
+
+    public List<String> listarArchivos() {
+        ListObjectsV2Request request = ListObjectsV2Request.builder()
+                .bucket(bucket)
+                .build();
+
+        ListObjectsV2Response response = s3Client.listObjectsV2(request);
+
+        return response.contents().stream()
+                .map(S3Object::key)
+                .collect(java.util.stream.Collectors.toList());
     }
 }

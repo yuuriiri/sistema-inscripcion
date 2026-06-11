@@ -168,4 +168,13 @@ public class InscripcionController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    /**
+     * GET /inscripciones/archivos/s3
+     * Lista todos los archivos almacenados en el bucket S3.
+     */
+    @GetMapping("/archivos/s3")
+    public ResponseEntity<List<String>> listarArchivosS3() {
+        return ResponseEntity.ok(s3Service.listarArchivos());
+    }
 }
