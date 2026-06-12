@@ -10,6 +10,9 @@ import java.util.LinkedHashMap;
 @RestController
 public class HomeController {
 
+    /*
+     * Endpoint para obtener información general del sistema
+     */
     @GetMapping("/")
     public ResponseEntity<Map<String, Object>> home() {
         Map<String, Object> info = new LinkedHashMap<>();
