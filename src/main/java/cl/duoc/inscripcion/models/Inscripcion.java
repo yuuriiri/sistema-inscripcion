@@ -34,6 +34,7 @@ public class Inscripcion {
         this.fechaInscripcion = LocalDateTime.now();
     }
 
+    // Constructor vacío requerido por JPA
     public Inscripcion() {}
 
     public Long getId() { return id; }
