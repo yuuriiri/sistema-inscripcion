@@ -11,6 +11,7 @@ import java.util.Optional;
 @Service
 public class CursoService {
 
+    // Inyectar el repositorio de cursos para acceder a la base de datos
     @Autowired
     private CursoRepository cursoRepository;
 
